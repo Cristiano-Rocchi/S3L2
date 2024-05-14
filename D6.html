@@ -160,8 +160,8 @@
 
       const paintItGreen = function () {
         const greenBG = document.querySelectorAll("ul");
-        greenBG.forEach(function (greenBG) {
-          greenBG.style.backgroundColor = "green";
+        greenBG.forEach(function (element) {
+          element.style.backgroundColor = "green";
         });
       };
       paintItGreen();
@@ -170,13 +170,27 @@
        Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
       */
 
-      const makeItClickable = function () {};
+      const makeItClickable = function () {
+        const title = document.querySelector("h1");
+        const text = title.innerText;
+        const newText = text.slice(0, -1);
+        title.innerText = newText;
+      };
+
+      document.querySelector("h1").addEventListener("click", makeItClickable);
 
       /* ESERCIZIO 10
        Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
       */
 
-      const revealFooterLink = function () {};
+      function mostraURLdelLink() {
+        const url =
+          "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents";
+        alert("URL del link: " + url);
+      }
+      document
+        .querySelector("footer")
+        .addEventListener("click", mostraURLdelLink);
 
       /* ESERCIZIO 11
        Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
